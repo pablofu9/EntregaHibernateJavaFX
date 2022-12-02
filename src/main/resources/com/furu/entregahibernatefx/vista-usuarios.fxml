@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane prefHeight="495.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.UsuariosController">
+   <children>
+      <JFXListView fx:id="listaUsuarios" editable="true" layoutX="461.0" layoutY="69.0" maxHeight="290.0" maxWidth="230.0" minHeight="200.0" minWidth="230.0" onMouseClicked="#userSelected" prefHeight="290.0" prefWidth="230.0" />
+      <JFXToolbar layoutY="-1.0" prefHeight="0.0" prefWidth="732.0" style="-fx-background-color: #276EB5;">
+         <left>
+            <JFXButton fx:id="btnUser" defaultButton="true" disable="true" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="#ffddbb" glyphName="USER" size="40" />
+               </graphic>
+            </JFXButton>
+         </left>
+         <center>
+            <JFXButton fx:id="btnObject" prefHeight="20.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fill="#ff7543" glyphName="GIFT" size="40" />
+               </graphic>
+            </JFXButton>
+         </center>
+         <right>
+            <JFXButton fx:id="btnExit" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SHARE" size="40" />
+               </graphic>
+            </JFXButton>
+         </right></JFXToolbar>
+      <Pane layoutX="27.0" layoutY="69.0" prefHeight="290.0" prefWidth="408.0" style="-fx-background-color: #276EB5;">
+         <children>
+            <JFXTextField fx:id="txtIdUser" editable="false" focusColor="WHITE" layoutX="56.0" layoutY="14.0" prefHeight="25.0" prefWidth="269.0" promptText="ID usuario" style="-fx-text-fill: red; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtNameUser" focusColor="WHITE" layoutX="56.0" layoutY="70.0" prefHeight="25.0" prefWidth="269.0" promptText="Nombre usuario" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtEmailUser" focusColor="WHITE" layoutX="56.0" layoutY="120.0" prefHeight="25.0" prefWidth="269.0" promptText="Email usuario" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
+            <JFXButton fx:id="btnAddUser" buttonType="RAISED" layoutX="32.0" layoutY="173.0" onAction="#addUser" prefHeight="36.0" prefWidth="103.0" ripplerFill="#a2ff94" style="-fx-background-color: #5AAAFF;" text="ADD">
+               <graphic>
+                  <FontAwesomeIconView fill="#51ff57" glyphName="PLUS" size="25" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRemoveUser" buttonType="RAISED" layoutX="153.0" layoutY="173.0" onAction="#borrar" prefHeight="36.0" prefWidth="103.0" ripplerFill="#a2ff94" style="-fx-background-color: #5AAAFF;" text="REMOVE">
+               <graphic>
+                  <FontAwesomeIconView fill="#030303" glyphName="TRASH" size="25" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnEditUser" buttonType="RAISED" layoutX="282.0" layoutY="173.0" onAction="#modificar" prefHeight="36.0" prefWidth="103.0" ripplerFill="#a2ff94" style="-fx-background-color: #5AAAFF;" text="EDIT">
+               <graphic>
+                  <FontAwesomeIconView fill="#ff9090" glyphName="PENCIL" size="25" />
+               </graphic>
+            </JFXButton>
+            <StackPane fx:id="stack" layoutX="113.0" layoutY="48.0" prefHeight="125.0" prefWidth="441.0" visible="false" />
+            <JFXButton fx:id="btnAddUser1" buttonType="RAISED" layoutX="32.0" layoutY="232.0" onAction="#limpiar" prefHeight="36.0" prefWidth="357.0" ripplerFill="#a2ff94" style="-fx-background-color: #5AAAFF;" text="CLEAN FIELDS">
+               <graphic>
+                  <FontAwesomeIconView fill="#e0ff16" glyphName="BOLT" size="25" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
