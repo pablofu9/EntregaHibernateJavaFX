@@ -1,5 +1,7 @@
 package entity;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -7,7 +9,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name="objetos")
-public class Objetos implements Serializable {
+public class Objetos extends RecursiveTreeObject<Objetos> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

@@ -10,26 +10,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane prefHeight="495.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.UsuariosController">
+<AnchorPane prefHeight="405.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.UsuariosController">
    <children>
       <JFXListView fx:id="listaUsuarios" editable="true" layoutX="461.0" layoutY="69.0" maxHeight="290.0" maxWidth="230.0" minHeight="200.0" minWidth="230.0" onMouseClicked="#userSelected" prefHeight="290.0" prefWidth="230.0" />
       <JFXToolbar layoutY="-1.0" prefHeight="0.0" prefWidth="732.0" style="-fx-background-color: #276EB5;">
          <left>
-            <JFXButton fx:id="btnUser" defaultButton="true" disable="true" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <JFXButton fx:id="btnUser" disable="true" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <graphic>
                   <FontAwesomeIconView fill="#ffddbb" glyphName="USER" size="40" />
                </graphic>
             </JFXButton>
          </left>
          <center>
-            <JFXButton fx:id="btnObject" prefHeight="20.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <JFXButton fx:id="btnObject" onAction="#cambiarVista" prefHeight="20.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <graphic>
-                  <FontAwesomeIconView fill="#ff7543" glyphName="GIFT" size="40" />
+                  <FontAwesomeIconView fill="#ff7543" glyphName="LAPTOP" size="40" />
                </graphic>
             </JFXButton>
          </center>
          <right>
-            <JFXButton fx:id="btnExit" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <JFXButton fx:id="btnExit" onAction="#salir" prefHeight="50.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <graphic>
                   <FontAwesomeIconView glyphName="SHARE" size="40" />
                </graphic>
