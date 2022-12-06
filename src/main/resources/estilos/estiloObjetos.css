@@ -6,13 +6,29 @@
     -fx-background-color:  #276EB5;
 }
 
-.table-column{
-    -fx-background-color:  #276EB5;
-    -fx-text-fill: white;
+.table-view {
+    -fx-font-size: 12px;
+    -fx-text-fill: blue;
 }
-.table-column:hover{
-    -fx-text-fill: red;
+
+/* Set the background color for the cells */
+.table-view .table-cell {
+    -fx-cell-size: 30px;
+    -fx-background-color: lightgrey;
 }
+
+/* Set the background color for the alternating rows */
+.table-view .table-row-cell:odd {
+    -fx-background-color: white;
+}
+.table-view .table-row-cell:even {
+    -fx-background-color: lightgrey;
+}
+
+
+
+
+
 
 #btnAddUser{
     -fx-background-color:#5AAAFF

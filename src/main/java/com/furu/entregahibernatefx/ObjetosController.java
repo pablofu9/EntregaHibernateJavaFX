@@ -135,11 +135,14 @@ public class ObjetosController implements Initializable {
 
     @FXML
     private void reservarObjeto(){
-        CRUD_Objetos.reservar(Integer.parseInt(txtId.getText()));
+        if(!checkReservado.isSelected()){
+            CRUD_Objetos.reservar(Integer.parseInt(txtId.getText()));
 
-        cargarTabla();
-        checkReservado.setSelected(true);
-    }
+            cargarTabla();
+            checkReservado.setSelected(true);
+        }
+        }
+
     @FXML
     private void addObjeto(){
         Objetos objetoNuevo = new Objetos();
