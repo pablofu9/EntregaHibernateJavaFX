@@ -1,0 +1,35 @@
+.text-field{
+    -fx-prompt-text-fill:white;
+    -fx-text-fill: white;
+}
+#panelBotones{
+    -fx-background-color:  #276EB5;
+}
+
+.table-column{
+    -fx-background-color:  #276EB5;
+    -fx-text-fill: white;
+}
+.table-column:hover{
+    -fx-text-fill: red;
+}
+
+#btnAddUser{
+    -fx-background-color:#5AAAFF
+}
+#btnCarrito{
+    -fx-background-color:#5AAAFF
+}
+#btnReservar{
+    -fx-background-color:#5AAAFF
+}
+
+.combo-box{
+    -fx-prompt-text-fill:white;
+    -fx-text-fill: white;
+}
+
+.table-view{
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
