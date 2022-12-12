@@ -1,20 +1,28 @@
 package com.furu.entregahibernatefx;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.controls.JFXTreeTableView;
 import entity.Objetos;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import modelo.CRUD_Objetos;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ObjetosController implements Initializable {
@@ -24,8 +32,7 @@ public class ObjetosController implements Initializable {
 
 
 
-
-
+    private List<Objetos> obj;
     @FXML
     private void cambiarVista() throws IOException {
         Stage stage = new Stage();
@@ -45,6 +52,9 @@ public class ObjetosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
 
     }
 }

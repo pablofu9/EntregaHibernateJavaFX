@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="405.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.ObjetosController">
+<AnchorPane prefHeight="405.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.ObjetosController">
    <children>
       <JFXToolbar layoutY="-1.0" prefHeight="0.0" prefWidth="732.0" style="-fx-background-color: #276EB5;">
          <left>
