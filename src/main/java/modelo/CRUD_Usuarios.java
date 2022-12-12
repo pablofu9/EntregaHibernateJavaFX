@@ -47,4 +47,14 @@ public class CRUD_Usuarios {
         session.getTransaction().commit();
         session.close();
     }
+
+    public static Usuarios buscarUser(int id){
+        //Nos buscara el usuario segun el id
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = HibernateUtil.getSession();
+        return session.get(Usuarios.class, id);
+
+
+    }
+
 }

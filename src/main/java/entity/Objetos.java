@@ -48,6 +48,15 @@ public class Objetos extends RecursiveTreeObject<Objetos> implements Serializabl
         this.reservado = reservado;
     }
 
+    public Objetos(Usuarios usuario, String nombre_objeto, String tipo_objeto, String estado, int precio, boolean reservado) {
+        this.usuario = usuario;
+        this.nombre_objeto = nombre_objeto;
+        this.tipo_objeto = tipo_objeto;
+        this.estado = estado;
+        this.precio = precio;
+        this.reservado = reservado;
+    }
+
     public int getId_objeto() {
         return id_objeto;
     }

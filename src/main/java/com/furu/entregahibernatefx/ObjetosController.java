@@ -1,5 +1,6 @@
 package com.furu.entregahibernatefx;
 
+import alertas.Alerts;
 import com.jfoenix.controls.*;
 import entity.Objetos;
 import entity.Usuarios;
@@ -14,6 +15,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelo.CRUD_Objetos;
@@ -27,7 +29,7 @@ import java.util.ResourceBundle;
 public class ObjetosController implements Initializable {
 
     @FXML
-    private JFXButton btnUser, btnObjecto, btnExit;
+    private JFXButton btnUser, btnObjecto, btnExit, btnLimpiar;
 
 
     @FXML
@@ -55,6 +57,8 @@ public class ObjetosController implements Initializable {
     @FXML
     private TableColumn<Objetos, Boolean> colReservado;
 
+    @FXML
+    private StackPane stack;
 
 
     @FXML
@@ -129,23 +133,87 @@ public class ObjetosController implements Initializable {
 
     @FXML //Usamos el metodo de arriba para rellenar los textfields
     private void objetoSelected(){
-        Objetos obj = (Objetos) tablaObjetos.getSelectionModel().getSelectedItem();
-        objetoCargado(obj);
+        /*Lo que hacemos primero es comprobar si la tabla esta vacia para que no salte una excepcion de
+        null point
+         */
+        if(tablaObjetos.getItems().isEmpty()){
+            Alerts.crearAlertaError(stack, "La tabla esta vacia");
+        }else{
+            Objetos obj = (Objetos) tablaObjetos.getSelectionModel().getSelectedItem();
+            objetoCargado(obj);
+        }
+
     }
 
     @FXML
     private void reservarObjeto(){
+        /*Reservamos un objeto si no el objeto no esta ya seleccionado
+        Si no lo que hara sera sacar un mensaje de error, de que ese objeto ya esta reservado
+         */
         if(!checkReservado.isSelected()){
             CRUD_Objetos.reservar(Integer.parseInt(txtId.getText()));
 
             cargarTabla();
             checkReservado.setSelected(true);
+        }else {
+            Alerts.crearAlertaError(stack, "El objeto ya esta reservado");
         }
         }
 
     @FXML
     private void addObjeto(){
-        Objetos objetoNuevo = new Objetos();
+        /*Lo que hacemos es buscar el usuario, segun el id que se muestre en el textfield
+        para asi poder añadir un nuevo objeto
+         */
+        boolean reserved=false;
+        try{
+            //Buscamos si el usuario existe
+            Usuarios u1 = CRUD_Usuarios.buscarUser(Integer.parseInt(txtUser.getText()));
+
+            if(u1 == null){
+                //Si no lo encuentra saldra un mensaje de error
+                Alerts.crearAlertaError(stack, "Usuario no encontrado");
+            }else{
+                //Si lo encuentra añadira el objeto
+                if(checkReservado.isSelected()){
+                    reserved=true;
+                }
+                Objetos objetoNuevo = new Objetos(u1, txtNombre.getText(),
+                        cmbTipo.getValue().toString(), cmbEstado.getValue().toString(),
+                        Integer.parseInt(txtPrecio.getText()), reserved);
+                CRUD_Objetos.insertarObjeto(objetoNuevo);
+                Alerts.crearAlertaInfo(stack, "Objeto insertado");
+                cargarTabla();
+                limpiar();
+            }
+
+        }catch (Exception e){
+            Alerts.crearAlertaError(stack, "Error al añadir");
+        }
+
+    }
+
+    @FXML //Metodo para borrar un objeto, si hay alguno seleccionado
+    private void deleteObject(){
+        if(txtId.getText().isEmpty()){
+            Alerts.crearAlertaError(stack,"Selecciona un objeto");
+        }else{
+            CRUD_Objetos.eliminarObjeto(Integer.parseInt(txtId.getText()));
+            Alerts.crearAlertaInfo(stack,"Objeto eliminado correctamente");
+            cargarTabla();
+            limpiar();
+        }
+    }
+
+    @FXML //Limpiamos los campos de texto y los combobox
+    private void limpiar(){
+        txtUser.setText("");
+        txtId.setText("");
+        txtPrecio.setText("");
+        txtNombre.setText("");
+        cmbEstado.setValue("Estado");
+        cmbTipo.setValue("Tipo");
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {

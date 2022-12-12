@@ -35,4 +35,14 @@ public class CRUD_Objetos {
         session.getTransaction().commit();
         session.close();
     }
+    //Metodo para eliminar objeto
+    public static void eliminarObjeto(int id){
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = HibernateUtil.getSession();
+        Objetos objetoDelete = (Objetos) session.createQuery("FROM Objetos WHERE id_objeto ="+id).uniqueResult();
+        session.beginTransaction();
+        session.delete(objetoDelete);
+        session.getTransaction().commit();
+        session.close();
+    }
 }
