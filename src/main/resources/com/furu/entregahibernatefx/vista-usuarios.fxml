@@ -38,7 +38,7 @@
       <Pane layoutX="27.0" layoutY="69.0" prefHeight="290.0" prefWidth="408.0" style="-fx-background-color: #276EB5;">
          <children>
             <JFXTextField fx:id="txtIdUser" editable="false" focusColor="WHITE" layoutX="56.0" layoutY="14.0" prefHeight="25.0" prefWidth="269.0" promptText="ID usuario" style="-fx-text-fill: red; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
-            <JFXTextField fx:id="txtNameUser" focusColor="WHITE" layoutX="56.0" layoutY="70.0" prefHeight="25.0" prefWidth="269.0" promptText="Nombre usuario" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtNameUser" focusColor="WHITE" layoutX="56.0" layoutY="72.0" prefHeight="25.0" prefWidth="269.0" promptText="Nombre usuario" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
             <JFXTextField fx:id="txtEmailUser" focusColor="WHITE" layoutX="56.0" layoutY="120.0" prefHeight="25.0" prefWidth="269.0" promptText="Email usuario" style="-fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="BLACK" />
             <JFXButton fx:id="btnAddUser" buttonType="RAISED" layoutX="32.0" layoutY="173.0" onAction="#addUser" prefHeight="36.0" prefWidth="103.0" ripplerFill="#a2ff94" style="-fx-background-color: #5AAAFF;" text="ADD">
                <graphic>

@@ -10,7 +10,9 @@ module com.furu.entregahibernatefx {
     requires java.sql;
     requires com.jfoenix;
     requires de.jensd.fx.glyphs.fontawesome;
+
     opens com.furu.entregahibernatefx to javafx.fxml;
-    opens entity to org.hibernate.orm.core;
+    opens entity to org.hibernate.orm.core, javafx.base;
+
     exports com.furu.entregahibernatefx;
 }
