@@ -12,8 +12,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 
-<AnchorPane prefHeight="639.0" prefWidth="732.0" stylesheets="@../../../estilos/estiloObjetos.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.ObjetosController">
+<AnchorPane fx:id="fondo" prefHeight="639.0" prefWidth="732.0" stylesheets="@../../../estilos/estiloObjetos.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.furu.entregahibernatefx.ObjetosController">
    <children>
       <JFXToolbar layoutY="-1.0" prefHeight="0.0" prefWidth="732.0" style="-fx-background-color: #276EB5;">
          <left>
@@ -51,16 +54,32 @@
       </TableView>
       <Pane fx:id="panelBotones" layoutX="103.0" layoutY="221.0" prefHeight="376.0" prefWidth="526.0">
          <children>
-            <JFXTextField fx:id="txtId" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="28.0" promptText="ID Objeto" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtId" disable="true" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="28.0" promptText="ID Objeto" unFocusColor="BLACK" />
             <JFXTextField fx:id="txtNombre" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="165.0" promptText="Nombre" style="-fx-prompt-text-fill: white;" unFocusColor="BLACK" />
             <JFXTextField fx:id="txtPrecio" focusColor="WHITE" labelFloat="true" layoutX="353.0" layoutY="28.0" promptText="Precio" style="-fx-prompt-text-fill: white;" unFocusColor="BLACK" />
             <JFXCheckBox fx:id="checkReservado" layoutX="352.0" layoutY="220.0" prefHeight="18.0" prefWidth="106.0" text="Reservado" textFill="WHITE" unCheckedColor="RED" />
             <JFXComboBox fx:id="cmbEstado" focusColor="WHITE" labelFloat="true" layoutX="353.0" layoutY="165.0" prefHeight="25.0" prefWidth="135.0" promptText="Estado" style="-fx-prompt-text-fill: white;" unFocusColor="BLACK" />
             <JFXComboBox fx:id="cmbTipo" focusColor="WHITE" labelFloat="true" layoutX="353.0" layoutY="93.0" prefHeight="25.0" prefWidth="135.0" promptText="Tipo" style="-fx-prompt-text-fill: white;" unFocusColor="BLACK" />
-            <JFXButton fx:id="btnAddUser" buttonType="RAISED" layoutX="38.0" layoutY="211.0" onAction="#addObjeto" prefHeight="36.0" prefWidth="135.0" ripplerFill="#a2ff94" text="ADD">
+            <JFXButton fx:id="btnAddUser" buttonType="RAISED" layoutX="38.0" layoutY="211.0" onAction="#addObjeto" prefHeight="36.0" prefWidth="135.0" text="ADD">
                <graphic>
                   <FontAwesomeIconView fill="#51ff57" glyphName="PLUS" size="25" />
                </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9212962985038757" green="1.0" blue="0.9855709671974182" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
             </JFXButton>
             <JFXButton fx:id="btnCarrito" buttonType="RAISED" layoutX="38.0" layoutY="267.0" onAction="#deleteObject" prefHeight="36.0" prefWidth="135.0" ripplerFill="#a2ff94" text="COMPRAR">
                <graphic>

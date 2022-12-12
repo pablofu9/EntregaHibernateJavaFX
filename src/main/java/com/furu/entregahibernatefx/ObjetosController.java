@@ -207,6 +207,7 @@ public class ObjetosController implements Initializable {
 
     @FXML //Limpiamos los campos de texto y los combobox
     private void limpiar(){
+        txtUser.setDisable(false);
         txtUser.setText("");
         txtId.setText("");
         txtPrecio.setText("");
