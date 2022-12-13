@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class UsuariosController implements Initializable {
 
-    @FXML
+    @FXML //Panel para las alertas
     private StackPane stack;
     @FXML
     private JFXButton btnUser, btnObject, btnExit, btnAddUser, btnRemoveUser, btnEditUser;
@@ -72,9 +72,17 @@ public class UsuariosController implements Initializable {
 
     @FXML//Mandamos la zona seleccionada en la tabla a los campos de texto
     public void userCargado(Usuarios u){
-        txtIdUser.setText(String.valueOf(u.getId_user()));
-        txtNameUser.setText(u.getNombre_usuario());
-        txtEmailUser.setText(u.getEmail_usuario());
+        /* El try-catch lo usamos para que pinchas en la tabla pero fuera de los usuarios, salte un men
+        saje por pantalla
+         */
+        try{
+            txtIdUser.setText(String.valueOf(u.getId_user()));
+            txtNameUser.setText(u.getNombre_usuario());
+            txtEmailUser.setText(u.getEmail_usuario());
+        }catch (Exception e){
+            Alerts.crearAlertaError(stack, "No estas seleccionando ningun usuario");
+        }
+
     }
 
     @FXML //Usamos el metodo de arriba para rellenar los textfields
@@ -119,7 +127,7 @@ public class UsuariosController implements Initializable {
 
     }
 
-    @FXML
+    @FXML //Menu de arriba, para cambiar las pantallas
     private void cambiarVista() throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("vista-objetos.fxml"));
@@ -127,11 +135,11 @@ public class UsuariosController implements Initializable {
         stage = new Stage(StageStyle.DECORATED);
         stage.setScene(scene);
         stage.show();
-        //Para cerrar el login
+
         Stage loginStage = (Stage) this.btnObject.getScene().getWindow();
         loginStage.close();
     }
-    @FXML
+    @FXML //Boton para salir de la aplicacion
     private void salir(){
         System.exit(0);
     }

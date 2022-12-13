@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CRUD_Usuarios {
 
-    public static void insertarUser(Usuarios u){
+    public static void insertarUser(Usuarios u){ //Metodo enargado de añadir un usuario
         SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = HibernateUtil.getSession();
         session.beginTransaction();

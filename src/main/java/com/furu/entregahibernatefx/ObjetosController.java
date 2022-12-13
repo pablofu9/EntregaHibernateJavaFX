@@ -57,11 +57,11 @@ public class ObjetosController implements Initializable {
     @FXML
     private TableColumn<Objetos, Boolean> colReservado;
 
-    @FXML
+    @FXML //Es el panel, que tenemos invisible, para las alertas por pantalla
     private StackPane stack;
 
 
-    @FXML
+    @FXML //Metodo para cargar la tabla con los datos de SQL
     private void cargarTabla(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id_objeto"));
         colUser.setCellValueFactory(new PropertyValueFactory<>("usuario"));
@@ -91,7 +91,7 @@ public class ObjetosController implements Initializable {
         System.exit(0);
     }
 
-    @FXML
+    @FXML //En este metodo y en el de abajo llenamos los combos con strings
     private void llenarComboTipo(){
         ObservableList<String> tipos = FXCollections.observableArrayList();
         tipos.add("Informatica");
@@ -125,6 +125,8 @@ public class ObjetosController implements Initializable {
         if(obj.isReservado()){
             checkReservado.setSelected(true);
 
+        }else{
+            checkReservado.setSelected(false);
         }
 
         txtId.setDisable(true);
@@ -145,7 +147,7 @@ public class ObjetosController implements Initializable {
 
     }
 
-    @FXML
+    @FXML //Metodo para reservar el objeto
     private void reservarObjeto(){
         /*Reservamos un objeto si no el objeto no esta ya seleccionado
         Si no lo que hara sera sacar un mensaje de error, de que ese objeto ya esta reservado
@@ -155,12 +157,13 @@ public class ObjetosController implements Initializable {
 
             cargarTabla();
             checkReservado.setSelected(true);
+            Alerts.crearAlertaError(stack, "El objeto se ha reservado !!");
         }else {
-            Alerts.crearAlertaError(stack, "El objeto ya esta reservado");
+            Alerts.crearAlertaError(stack, "El objeto ya esta reservado, selecciona otro");
         }
         }
 
-    @FXML
+    @FXML //Metodo para añadir un objeto nuevo
     private void addObjeto(){
         /*Lo que hacemos es buscar el usuario, segun el id que se muestre en el textfield
         para asi poder añadir un nuevo objeto
